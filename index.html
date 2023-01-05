@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .upper{
+            display: flex; 
+            align-items: center;
+            /* border: 2px solid red"  */
+        }
+    </style>
+</head>
+<body>
+    <h1>My shoping list</h1>
+    <div class="upper" >
+        <h3>Enter a new iteams:</h3>
+        <input type="text" name="" id="input" style="height: 50%;">
+        <button onclick="add()" >Add item</button>
+    </div>
+    <div class="lower" id="lower" >
+    </div>
+    <script>
+        
+        function add() {
+            var divv=document.createElement("div")
+            const lower=document.getElementById("lower")
+            const ult=document.createElement("li")
+            const name=document.getElementById("input").value
+            ult.textContent=name+" "
+            const buton=document.createElement("button")
+            buton.innerText="delete"
+
+            buton.addEventListener("click",(event)=>{
+                console.log(event);
+                divv.remove();
+            })
+
+            ult.appendChild(buton)
+            divv.appendChild(ult)
+            // divv.style="border: 2px solid red;"
+            lower.appendChild(divv)
+            document.getElementById("input").value=""
+            
+        }
+        
+    </script>
+</body>
+</html>
